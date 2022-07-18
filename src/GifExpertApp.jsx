@@ -5,6 +5,8 @@ const GifExpertApp = () => {
   const [categories, setCategories] = useState(['One Punch', 'Naruto']);
 
   const onAddCategory = (newCategory) => {
+    if (categories.includes(newCategory)) return;
+
     const newCategories = [newCategory, ...categories];
     setCategories(newCategories);
   };
@@ -17,6 +19,7 @@ const GifExpertApp = () => {
       {/* Input */}
       {/* Se crea una nueva propiedad llamada onNewCategory la cual llama a la funcion
       onAddCategory cuando el componente llama a esta propiedad */}
+      {/* Este componente solo emite el nuevo valor */}
       <AddCategory onNewCategory={(event) => onAddCategory(event)} />
 
       {/* Listado de gifs */}

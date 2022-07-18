@@ -12,7 +12,7 @@ const AddCategory = ({ onNewCategory }) => {
     // Minimo dos caracteres de longitud
     if (inputValue.trim().length <= 1) return;
 
-    onNewCategory(inputValue.trim());
+    onNewCategory(inputValue.trim().toLowerCase());
     setInputValue('');
   };
 
