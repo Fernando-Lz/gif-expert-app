@@ -4,8 +4,8 @@ import AddCategory from './components/AddCategory';
 const GifExpertApp = () => {
   const [categories, setCategories] = useState(['One Punch', 'Naruto']);
 
-  const onAddCategory = () => {
-    const newCategories = ['Apex Legends', ...categories];
+  const onAddCategory = (newCategory) => {
+    const newCategories = [newCategory, ...categories];
     setCategories(newCategories);
   };
 
@@ -15,8 +15,9 @@ const GifExpertApp = () => {
       <h1>GifExpertApp</h1>
 
       {/* Input */}
-      <AddCategory />
-      <button type="button" onClick={onAddCategory}>Agregar</button>
+      {/* Se crea una nueva propiedad llamada onNewCategory la cual llama a la funcion
+      onAddCategory cuando el componente llama a esta propiedad */}
+      <AddCategory onNewCategory={(event) => onAddCategory(event)} />
 
       {/* Listado de gifs */}
       <ol>
