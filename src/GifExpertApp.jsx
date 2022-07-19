@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import AddCategory from './components/AddCategory';
+import GifGrid from './components/GifGrid';
 
 const GifExpertApp = () => {
-  const [categories, setCategories] = useState(['One Punch', 'Naruto']);
+  const [categories, setCategories] = useState([]);
 
   const onAddCategory = (newCategory) => {
     if (categories.includes(newCategory)) return;
@@ -13,19 +14,19 @@ const GifExpertApp = () => {
 
   return (
     <>
-      {/* Titulo */}
       <h1>GifExpertApp</h1>
 
-      {/* Input */}
       {/* Se crea una nueva propiedad llamada onNewCategory la cual llama a la funcion
       onAddCategory cuando el componente llama a esta propiedad */}
       {/* Este componente solo emite el nuevo valor */}
       <AddCategory onNewCategory={(event) => onAddCategory(event)} />
 
-      {/* Listado de gifs */}
-      <ol>
-        {categories.map((category) => <li key={category}>{category}</li>)}
-      </ol>
+      {
+        categories.map((category) => (
+          <GifGrid category={category} key={category} />
+        ))
+      }
+
     </>
   );
 };
