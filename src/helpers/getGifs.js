@@ -9,7 +9,7 @@ const getGifs = async (category) => {
     {
       id: img.id,
       title: img.title,
-      url: img.images.downsized_medium.url,
+      url: img.images.fixed_height.url,
     }
   ));
 
